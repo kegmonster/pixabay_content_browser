@@ -7,7 +7,7 @@ class Authentication extends ChangeNotifier{
   String email = '';
 
   dynamic validatePassword(String password){
-    //> 8 lowercase, uppercase, number, specialc
+    //> 8 lowercase, uppercase, number, specialChar
     //split the validation so we get specific feedback
     if (password.length < 8){
       return 'Password too short';
@@ -47,6 +47,7 @@ class Authentication extends ChangeNotifier{
   bool get isLoggedIn {
     return _isLoggedIn;
   }
+
   set isLoggedIn(bool value){
     _isLoggedIn = value;
     notifyListeners();

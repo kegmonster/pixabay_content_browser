@@ -5,7 +5,6 @@ class ImageItem extends BaseItem{
   IconData iconData = Icons.image;
 
   ImageItem.fromJson(Map<String,dynamic> json) : super.fromJson(json){
-    //print(json['previewURL']);
     url = json['previewURL'];
     resolution = Size(json['imageWidth'].toDouble(), json['imageHeight'].toDouble());
     fileName = _getFileNameFromURL(json['previewURL']);

@@ -36,7 +36,7 @@ class LoginPageState extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,//Color.fromARGB(255, 0xEC, 0x3D, 0x67),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(child: Image.asset('assets/wings.png', fit: BoxFit.contain,)),

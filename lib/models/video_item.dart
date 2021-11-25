@@ -10,17 +10,8 @@ class VideoItem extends BaseItem{
 
     videoUrl = json['videos']['medium']['url'];
     resolution = _getResolution(json['videos']);
-    fileName = json['id'].toString();//_getFileNameFromURL(json['id']);
+    fileName = json['id'].toString();
     creationDate = _getCreationDateFromUrl(json['userImageURL']);
-  }
-
-  String _getFileNameFromURL(String url) {
-    if (url.isNotEmpty) {
-      return Uri.parse(url).pathSegments.last;
-    }
-    else{
-      return 'no_name';
-    }
   }
 
   DateTime _getCreationDateFromUrl(String url) {

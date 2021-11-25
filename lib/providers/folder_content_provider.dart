@@ -10,7 +10,7 @@ class FolderContentProvider extends ChangeNotifier{
   String _lastError = '';
   int _currentPage = 1;
   bool busy = false;
-  SortBy sortOrder = SortBy.name;
+  SortBy sortOrder = SortBy.name_asc;
   PixabayAPIProvider pixabayAPIProvider = PixabayAPIProvider();
   bool hasMore = true;
   final Client client = Client();
@@ -56,13 +56,17 @@ class FolderContentProvider extends ChangeNotifier{
 
   void _sort(List<BaseItem> items, SortBy sortBy){
     switch(sortBy){
-      case SortBy.name:
-        // TODO: Handle this case.
+      case SortBy.name_asc:
         items.sort((a,b) => a.fileName.compareTo(b.fileName));
         break;
-      case SortBy.date:
-        // TODO: Handle this case.
+      case SortBy.name_desc:
+        items.sort((a,b) => b.fileName.compareTo(a.fileName));
+        break;
+      case SortBy.date_asc:
         items.sort((a,b) => a.creationDate.compareTo(b.creationDate));
+        break;
+      case SortBy.date_desc:
+        items.sort((a,b) => b.creationDate.compareTo(a.creationDate));
         break;
     }
   }
@@ -70,14 +74,24 @@ class FolderContentProvider extends ChangeNotifier{
 
 String sortByLookup(SortBy sortBy){
   switch(sortBy){
-    case SortBy.name:
-      return 'Name';
-    case SortBy.date:
-      return 'Date';
+    case SortBy.name_asc:
+      return 'Name ascending';
+      break;
+    case SortBy.name_desc:
+      return 'Name descending';
+      break;
+    case SortBy.date_asc:
+      return 'Date ascending';
+      break;
+    case SortBy.date_desc:
+      return 'Date descending';
+      break;
   }
 }
 
 enum SortBy{
-  name,
-  date
+  name_asc,
+  name_desc,
+  date_asc,
+  date_desc
 }
