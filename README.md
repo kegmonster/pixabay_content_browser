@@ -18,8 +18,8 @@ will be a successful login.
 Videos names are a bit arbitrary, currently using the collection of tags + video id. 
 File extension has been excluded.
 Video creation dates are spoofed to the uploading users join date, since it is not clear where 
-the actual video date can be found.Pixabay
+the actual video date can be found.
 
 API limits: the app currently does not do anything to prevent exceeding api call limits. 
 It will fail gracefully if limits are hit, with text to display the reported reason.
-Caching has not been implimented as required by the pixabay api.
+Caching has not been implemented as required by the pixabay api.
