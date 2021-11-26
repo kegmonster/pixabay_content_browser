@@ -11,7 +11,8 @@ class FolderContentProvider extends ChangeNotifier{
   int _currentPage = 1;
   bool busy = false;
   SortBy sortOrder = SortBy.name_asc;
-  PixabayAPIProvider pixabayAPIProvider = PixabayAPIProvider();
+  static const String API_KEY = '24484916-0948d19eda371407c3d8e4f09';
+  PixabayAPIProvider pixabayAPIProvider = PixabayAPIProvider(Client(), API_KEY);
   bool hasMore = true;
   final Client client = Client();
 
@@ -19,7 +20,7 @@ class FolderContentProvider extends ChangeNotifier{
 
   void fetchMoreItems() async {
     try {
-      List<BaseItem> items = await pixabayAPIProvider.fetchItems(client, searchTerm, _currentPage.toString());
+      List<BaseItem> items = await pixabayAPIProvider.fetchItems(searchTerm, _currentPage.toString());
       if (items.length >= 2 * PixabayAPIProvider.PAGE_SIZE && items.length > 0){
         hasMore = true;
       }

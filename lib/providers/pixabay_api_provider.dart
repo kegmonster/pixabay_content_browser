@@ -6,14 +6,17 @@ import 'package:pixabay_content_browser/models/image_item.dart';
 import 'package:pixabay_content_browser/models/video_item.dart';
 
 class PixabayAPIProvider{
-  final String API_KEY = '24484916-0948d19eda371407c3d8e4f09';
+  final String api_key;// = '24484916-0948d19eda371407c3d8e4f09';
   final String _host = 'pixabay.com';
+  final Client client;
   static const int PAGE_SIZE = 25;
 
-  Future<List<ImageItem>> fetchImageItems(Client client, String searchTerm, String page) async {
+  PixabayAPIProvider(this.client,this.api_key);
+
+  Future<List<ImageItem>> fetchImageItems(String searchTerm, String page) async {
     var resp = await client.get(Uri.https(_host,'api',
         {
-          'key':API_KEY,
+          'key':api_key,
           'q': searchTerm,
           'per_page': PAGE_SIZE.toString(),
           'page' : page,
@@ -31,10 +34,10 @@ class PixabayAPIProvider{
     return items;
   }
 
-  Future<List<VideoItem>> fetchVideoItems(Client client, String searchTerm, String page) async {
+  Future<List<VideoItem>> fetchVideoItems(String searchTerm, String page) async {
     var resp = await client.get(Uri.https(_host,'api/videos',
         {
-          'key': API_KEY,
+          'key': api_key,
           'q': searchTerm,
           'per_page': PAGE_SIZE.toString(),
           'page' : page
@@ -53,11 +56,11 @@ class PixabayAPIProvider{
     return items;
   }
 
-  Future<List<BaseItem>> fetchItems(Client client, String searchTerm, String page) async {
+  Future<List<BaseItem>> fetchItems(String searchTerm, String page) async {
     List<BaseItem> items = [];
-    List<BaseItem> images= await fetchImageItems(client, searchTerm, page);
+    List<BaseItem> images= await fetchImageItems(searchTerm, page);
     items.addAll(images);
-    List<BaseItem> videos = await fetchVideoItems(client, searchTerm, page);
+    List<BaseItem> videos = await fetchVideoItems(searchTerm, page);
     items.addAll(videos);
     return items;
   }
