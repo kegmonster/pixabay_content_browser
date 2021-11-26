@@ -8,6 +8,14 @@ This project was completed based on the use case provided by Redbull.
 
 It offers authenticated users the possibility to browse and view content from Pixabay.
 
+## Features
+
+ - Authentication with a valid username and password
+ - Ability to browse a selected list of content categories
+ - Each category returns a combined list of the images and videos that match the category
+ - Preview images and videos. Video previews provide basic playback
+ - Sort the returned content by name or date
+
 ## Notes
 
 Authentication is just a sample. There is no backend, so any valid email/password combination
