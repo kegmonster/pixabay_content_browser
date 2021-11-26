@@ -10,7 +10,6 @@ class LoginPage extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return LoginPageState();
   }
 
@@ -25,7 +24,6 @@ class LoginPageState extends State<LoginPage>{
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,

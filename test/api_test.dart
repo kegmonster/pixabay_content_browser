@@ -19,11 +19,9 @@ void main(){
   test("Test known api image decoding", () async {
     var resp = await client.get(
         Uri.https('pixabay.com', 'api', {'key': API_KEY, 'id': '195893'}));
-    print(resp.body);
     Map<String, dynamic> data = jsonDecode(resp.body);
     List<dynamic> results = data['hits'];
     results.forEach((element) {
-      print(element);
       ImageItem item = ImageItem.fromJson(element);
       expect(item.fileName, 'flower-195893_150.jpg');
       expect(item.creationDate, DateTime(2013, 10, 15));
@@ -64,7 +62,6 @@ void main(){
     };
     List<dynamic> results = data['hits'];
     results.forEach((element) {
-      print(element);
       ImageItem item = ImageItem.fromJson(element);
       expect(item.fileName, 'flower-195893_150.jpg');
       expect(item.creationDate, DateTime(2013, 10, 15));
@@ -76,7 +73,6 @@ void main(){
     var resp = await client.get(
         Uri.https('pixabay.com', 'api/videos', {'key': API_KEY, 'id': '1044'}));
     Map<String, dynamic> data = jsonDecode(resp.body);
-    print(resp.body);
     List<dynamic> results = data['hits'];
     results.forEach((element) {
       VideoItem item = VideoItem.fromJson(element);

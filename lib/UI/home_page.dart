@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     SystemChrome.setPreferredOrientations([]);
   }
@@ -72,7 +71,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: (){
           setState(() {
             //todo: get new folder name
-            folders.add('extra');
+            folders.add('todo');
           });
         },
         child: Icon(Icons.add),

@@ -15,7 +15,6 @@ class _VideoItemPreviewState extends State<VideoItemPreview> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _controller = VideoPlayerController.network(
         widget.item.videoUrl)
@@ -29,16 +28,12 @@ class _VideoItemPreviewState extends State<VideoItemPreview> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    print('url' + widget.item.url);
-
     return ListTile(
       contentPadding: EdgeInsets.all(0.0),
       dense: true,

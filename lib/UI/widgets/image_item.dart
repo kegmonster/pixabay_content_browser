@@ -7,7 +7,6 @@ class ImageItemPreview extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListTile(
         contentPadding: EdgeInsets.all(2.0),
         title: Image.network(item.url, fit: BoxFit.fill,),

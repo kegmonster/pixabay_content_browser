@@ -22,14 +22,12 @@ class FolderPageState extends State<FolderPage> {
   static const int SCROLL_THRESHOLD = 5;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     widget.contentProvider.fetchMoreItems();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ChangeNotifierProvider<FolderContentProvider>.value(
       value: widget.contentProvider,
       child: Consumer<FolderContentProvider>(
@@ -74,7 +72,6 @@ class FolderPageState extends State<FolderPage> {
                           contentProvider.fetchMoreItems();
                         }
                         if (index == contentProvider.baseItems.length) {
-                          print(contentProvider.hasMore);
                           if (contentProvider.hasMore) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
