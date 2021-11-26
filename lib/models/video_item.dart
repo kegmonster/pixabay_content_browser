@@ -10,10 +10,14 @@ class VideoItem extends BaseItem{
 
     videoUrl = json['videos']['medium']['url'];
     resolution = _getResolution(json['videos']);
-    fileName = json['id'].toString();
+    fileName = _getFileName(json['tags'], json['id'].toString());
     creationDate = _getCreationDateFromUrl(json['userImageURL']);
   }
 
+  String _getFileName(String tags, String id){
+    return tags.replaceAll(' ', '_').replaceAll(',', '') + '_'+ id;
+  }
+  
   DateTime _getCreationDateFromUrl(String url) {
     if (url.isNotEmpty) {
       List<String> segments = Uri.parse(url).pathSegments;

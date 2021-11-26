@@ -75,8 +75,9 @@ void main(){
     Map<String, dynamic> data = jsonDecode(resp.body);
     List<dynamic> results = data['hits'];
     results.forEach((element) {
+      print(element);
       VideoItem item = VideoItem.fromJson(element);
-      expect(item.fileName, '1044');
+      expect(item.fileName, 'new_york_city_manhattan_people_1044');
       expect(item.creationDate, DateTime(2015, 10, 16));
       expect(item.resolution, Size(1920.0, 1080.0));
     });
@@ -90,7 +91,7 @@ void main(){
           "id": 1044,
           "pageURL": "https://pixabay.com/videos/id-1044/",
           "type": "film",
-          "tags": "new york city,manhattan,people",
+          "tags": "new york city, manhattan, people",
           "duration": 14,
           "picture_id": "539965294-5d28c268c602aa5173006fa74acb94671783ba702dc2892682e897c8a158af75-d",
           "videos": {
@@ -131,10 +132,10 @@ void main(){
     };
     List<dynamic> results = sample['hits'];
     results.forEach((element) {
-    VideoItem item = VideoItem.fromJson(element);
-    expect(item.fileName, '1044');
-    expect(item.creationDate, DateTime(2015, 10, 16));
-    expect(item.resolution, Size(1920.0, 1080.0));
+      VideoItem item = VideoItem.fromJson(element);
+      expect(item.fileName, 'new_york_city_manhattan_people_1044');
+      expect(item.creationDate, DateTime(2015, 10, 16));
+      expect(item.resolution, Size(1920.0, 1080.0));
     });
   });
 }
